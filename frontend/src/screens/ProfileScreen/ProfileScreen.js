@@ -38,9 +38,9 @@ const ProfileScreen = ({ location, history }) => {
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const data = new FormData();
       data.append("file", pics);
-      data.append("upload_preset", "notezipper");
-      data.append("cloud_name", "piyushproj");
-      fetch("https://api.cloudinary.com/v1_1/piyushproj/image/upload", {
+      data.append("upload_preset", "notefy");
+      data.append("cloud_name", "dkui8wpyy");
+      fetch("https://api.cloudinary.com/v1_1/dkui8wpyy/image/upload", {
         method: "post",
         body: data,
       })
@@ -117,13 +117,21 @@ const ProfileScreen = ({ location, history }) => {
               )}
               <Form.Group controlId="pic">
                 <Form.Label>Change Profile Picture</Form.Label>
-                <Form.File
+                {/* <Form.File
                   onChange={(e) => postDetails(e.target.files[0])}
                   id="custom-file"
                   type="image/png"
                   label="Upload Profile Picture"
                   custom
-                />
+                /> */}
+                <Form.Control
+             onChange={(e)=>postDetails(e.target.files[0])}
+              id='custom-file'
+              type="image/png"
+              label="Upload Profile Picture"
+              //placeholder="Confirm Password"
+              custom
+            />
               </Form.Group>
               <Button type="submit" varient="primary">
                 Update

@@ -3,12 +3,31 @@ import { Accordion, Badge, Button, Card } from "react-bootstrap";
 import MainScreen from "../../components/MainScreen";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-
 import { useDispatch, useSelector } from "react-redux";
 import { deleteNoteAction, listNotes } from "../../actions/notesActions";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 
+// function ContextAwareToggle({ children, eventKey, callback }) {
+//   const { activeEventKey } = useContext(AccordionContext);
+
+//   const decoratedOnClick = useAccordionButton(
+//     eventKey,
+//     () => callback && callback(eventKey),
+//   );
+
+//   const isCurrentEventKey = activeEventKey === eventKey;
+
+//   return (
+//     <button
+//       type="button"
+//       style={{ backgroundColor: isCurrentEventKey ? 'pink' : 'lavender' }}
+//       onClick={decoratedOnClick}
+//     >
+//       {children}
+//     </button>
+//   );
+// }
 function MyNotes({ history, search }) {
   const dispatch = useDispatch();
 
@@ -77,7 +96,7 @@ function MyNotes({ history, search }) {
           .reverse()
           .map((note) => (
             <Accordion>
-              <Card style={{ margin: 10 }} key={note._id}>
+               <Card style={{ margin: 10 }} key={note._id}>
                 <Card.Header style={{ display: "flex" }}>
                   <span
                     // onClick={() => ModelShow(note)}
@@ -90,13 +109,15 @@ function MyNotes({ history, search }) {
                       fontSize: 18,
                     }}
                   >
-                    <Accordion.Toggle
+                    {/* <Accordion.Toggle
                       as={Card.Text}
                       variant="link"
                       eventKey="0"
                     >
+                     
                       {note.title}
-                    </Accordion.Toggle>
+                    </Accordion.Toggle> */}
+                     
                   </span>
 
                   <div>
@@ -128,7 +149,7 @@ function MyNotes({ history, search }) {
                     </blockquote>
                   </Card.Body>
                 </Accordion.Collapse>
-              </Card>
+              </Card> 
             </Accordion>
           ))}
     </MainScreen>
